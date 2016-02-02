@@ -1,8 +1,7 @@
-172.16.0.1   dnsmasq.rc  dnsmasq
-172.16.0.2   ntp.rc      ntp
-172.16.0.3   gitlab.rc   gitlab
-172.16.0.4   www.rc      www
-172.16.0.5   rubygems.rc rubygems rubygems.org
-172.16.0.6   chat.rc     chat
-
-172.16.0.254 rubynz.rc   rubynz
+10.0.0.1  dnsmasq.rc  dnsmasq
+10.0.0.2  ntp.rc      ntp
+10.0.0.10 rubynz.rc   rubynz
+10.0.0.11 gitlab.rc   gitlab
+10.0.0.12 www.rc      www
+10.0.0.13 rubygems.rc rubygems rubygems.org
+10.0.0.14 chat.rc     chat

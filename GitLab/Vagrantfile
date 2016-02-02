@@ -1,13 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-GITLAB_DEB = "gitlab_7.6.2-omnibus.5.3.0.ci.1-1_amd64.deb"
+GITLAB_DEB = "gitlab-ce_8.4.2-ce.0_amd64.deb"
 
 Vagrant.configure(2) do |config|
   config.vm.box      = "ubuntu/trusty64"
   config.vm.hostname = "gitlab.rc"
 
-  config.vm.network "public_network", mac: "0214B050DB9E", ip: "172.16.0.3", netmask: "255.255.0.0", bridge: "en0: Ethernet"
+  config.vm.network "public_network", mac: "525542590011", ip: "10.0.0.11", netmask: "255.255.0.0", bridge: "en0: Ethernet"
 
 
   config.vm.provider "virtualbox" do |vb|
@@ -26,7 +26,7 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y postfix
     (
       cd /vagrant
-      wget -N https://downloads-packages.s3.amazonaws.com/ubuntu-14.04/#{GITLAB_DEB}
+      wget -N https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/trusty/#{GITLAB_DEB}/download
       sudo dpkg -i #{GITLAB_DEB}
     )
     sudo cp /etc/gitlab/gitlab.rb /etc/gitlab/gitlab.rb.orig

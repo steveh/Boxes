@@ -1,6 +1,7 @@
-02:EA:AC:9C:AA:AE dnsmasq
-02:11:84:0E:DC:C7 ntp
-02:14:B0:50:DB:9E gitlab
-02:95:EA:A4:76:13 www
-02:00:BF:1E:F5:36 rubygems
-02:6F:D3:4D:41:05 chat
+52:55:42:59:00:01 dnsmasq
+52:55:42:59:00:02 ntp
+52:55:42:59:00:10 rubynz
+52:55:42:59:00:11 gitlab
+52:55:42:59:00:12 www
+52:55:42:59:00:13 rubygems
+52:55:42:59:00:14 chat
