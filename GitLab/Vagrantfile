@@ -9,24 +9,23 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "public_network", mac: "525542590011", ip: "10.0.0.11", netmask: "255.255.0.0", bridge: "en0: Ethernet"
 
-
   config.vm.provider "virtualbox" do |vb|
     vb.gui    = false
-    vb.memory = "1536"
+    vb.memory = "2048"
     vb.cpus   = 2
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-    echo "Disabling SSH password auth"
     sudo sed -e 's/PasswordAuthentication\ yes/PasswordAuthentication\ no/' -i /etc/ssh/sshd_config
     sudo service ssh restart
 
+    sudo sed -e 's/\\/archive.ubuntu.com/\\/nz.archive.ubuntu.com/' -i /etc/apt/sources.list
     sudo apt-get update
-    sudo apt-get install -y openssh-server
-    sudo apt-get install -y postfix
+
+    sudo apt-get install -y openssh-server postfix
     (
       cd /vagrant
-      wget -N https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/trusty/#{GITLAB_DEB}/download
+      wget -N https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/trusty/#{GITLAB_DEB}/download -O #{GITLAB_DEB}
       sudo dpkg -i #{GITLAB_DEB}
     )
     sudo cp /etc/gitlab/gitlab.rb /etc/gitlab/gitlab.rb.orig
@@ -40,7 +39,7 @@ Vagrant.configure(2) do |config|
       # Replace these with your camp's icons.
       cd /opt/gitlab/embedded/service/gitlab-rails/app/assets/images
       sudo cp /vagrant/georgie_icon.png logo-white.png
-      sudo co /vagrant/georgie_icon.png logo-black.png
+      sudo cp /vagrant/georgie_icon.png logo-black.png
     )
     (
       cd /opt/gitlab/embedded/service/gitlab-rails

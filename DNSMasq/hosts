@@ -1,6 +1,6 @@
 10.0.0.1  dnsmasq.rc  dnsmasq
 10.0.0.2  ntp.rc      ntp
-10.0.0.10 rubynz.rc   rubynz
+10.0.0.3  rubynz.rc   rubynz
 10.0.0.11 gitlab.rc   gitlab
 10.0.0.12 www.rc      www
 10.0.0.13 rubygems.rc rubygems rubygems.org
